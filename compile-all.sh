@@ -11,6 +11,8 @@ x86_64-unknown-linux-gnu
 for i in $TARGETS; do
     if [ "$i" = "i686-unknown-linux-gnu" ]; then
         PKG_CONFIG_ALLOW_CROSS=1 PKG_CONFIG_PATH=/usr/lib32/pkgconfig:/usr/share/pkgconfig ./compile-cross.sh $i
+    elif [ "$i" = "aarch64-pc-windows-gnullvm" ]; then
+        WINDRES=aarch64-w64-mingw32-windres ./compile-cross.sh $i
     else
         ./compile-cross.sh $i
     fi

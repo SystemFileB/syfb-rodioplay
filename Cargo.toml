@@ -1,6 +1,6 @@
 [package]
 name = "rodioplay"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
 description = "一个特别简单的音频播放器, 用于给作者研究 rodio 库"
 readme = "README.md"
@@ -16,7 +16,7 @@ ctrlc = "3.5"
 ferris-says = "0.3"
 rodio = { git = "https://github.com/RustAudio/rodio.git", default-features = false, features = ["64bit", "playback", "symphonia-all"] }
 
-[target."cfg(windows)".build-dependencies]
+[build-dependencies]
 winresource = "0.1"
 
 [profile.release]

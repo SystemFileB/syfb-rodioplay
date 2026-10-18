@@ -2,11 +2,11 @@
 
 TARGET=${1}
 DESTNAME=$(echo "$TARGET" | sed -E '
-    s/^x86_64-.*-windows.*/rodioplay.x86_64.exe/; t
-    s/^x86_64-.*/rodioplay.x86_64/;         t
-    s/^i686-.*-windows.*/rodioplay.i686.exe/; t
-    s/^i686-.*/rodioplay.i686/;             t
-    s/^aarch64-.*-windows.*/rodioplay.aarch64.exe/; t
+    s/^x86_64-.*-windows.*/rodioplay-x86_64-windows/; t
+    s/^x86_64-.*/rodioplay-x86_64-linux/;         t
+    s/^i686-.*-windows.*/rodioplay-i686-windows/; t
+    s/^i686-.*/rodioplay-i686-linux/;             t
+    s/^aarch64-.*-windows.*/rodioplay-aarch64-windows/; t
 ')
 
 MOVE_RESULT=1
@@ -24,6 +24,6 @@ else
     SRCFILE="$SRCDIR/rodioplay"
 fi
 
-mkdir -p ./build
-cp "${SRCFILE}" "./build/${DESTNAME}"
+mkdir -p ./build/${DESTNAME}
+cp "${SRCFILE}" "./build/${DESTNAME}/"
 
