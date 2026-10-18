@@ -41,7 +41,19 @@ x86_64-unknown-linux-gnu
 cargo build -r --target <TARGET>
 ```
 
+在为 Windows 交叉编译时，可能会有无法链接 `libresource.a` 的问题，可以在构建时额外传入 `WINDRES` 环境变量，以为正确的平台生成版本信息  
+例如: 
+```bash
+WINDRES=aarch64-w64-mingw32-windres cargo build -r --target aarch64-pc-windows-gnullvm
+```
+
 ## 更新日志
+
+### 1.100.1
+- 修复了 Windows 平台上没有版本信息的问题
+- 修改了构建脚本
+    - 支持 WINDRES 环境变量传参
+    - 将每个构建结果移到一个单独的文件夹，方便发布新版本
 
 ### 1.100
 - 将名字 rodio-test 改为 rodioplay
